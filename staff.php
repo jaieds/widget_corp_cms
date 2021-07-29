@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once("./includes/functions.php");
+include("./includes/header.php");
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic</title>
-</head>
+<table id="structure">
+    <tr>
+        <td id="navigation">
+            &nbsp;
+        </td>
+        <td id="page">
+            <h2>Staff Menu</h2>
+            <p>Welcome to the staff area.</p>
+            <ul>
+                <li><a href="content.php">Manage Website Content</a></li>
+                <li><a href="new_user.php">Add Staff User</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
 
-<body>
-
-</body>
-
-</html>
+<?php
+include("./includes/footer.php");
+?>
