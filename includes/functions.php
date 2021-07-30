@@ -103,16 +103,18 @@ function navigation($subject, $page)
                         <a href=\"edit_subject.php?subj=" . urlencode($row['id']) . "\">
                         {$row['menu_name']}</a></li>";
 
-        $pages_results = get_all_pages_by_sub($row['id']);
-        confirm_query($pages_results, $connection);
+        if ($row['id'] == $subject['id']) {
+            $pages_results = get_all_pages_by_sub($row['id']);
+            confirm_query($pages_results, $connection);
 
-        $output .= "<ul class=\"pages\">";
-        while ($row_pages = mysqli_fetch_assoc($pages_results)) {
-            $output .= "<li " . ($row_pages['id'] == (isset($page['id']) ? $page['id'] : NULL) ? "class=\"selected\"" : NULL) . ">
+            $output .= "<ul class=\"pages\">";
+            while ($row_pages = mysqli_fetch_assoc($pages_results)) {
+                $output .= "<li " . ($row_pages['id'] == (isset($page['id']) ? $page['id'] : NULL) ? "class=\"selected\"" : NULL) . ">
                             <a href=\"content.php?page=" . urlencode($row_pages['id']) . "\">
                             {$row_pages['menu_name']}</a></li>";
+            }
+            $output .= "</ul>";
         }
-        $output .= "</ul>";
     }
     $output .= "</ul>";
 
